@@ -69,7 +69,7 @@ public final class PayrollGenerator {
         // as it is invalid, but if is 0, you still generate a paystub, but the amount is 0.
 
         //YOUR CODE HERE
-      
+
 
          // now save out employees to a new file
 

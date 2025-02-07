@@ -1,8 +1,8 @@
 package student;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
-import java.util.LinkedList;
 
 /**
  * Main driver for the PayrollGenerator program.
@@ -51,15 +51,23 @@ public final class PayrollGenerator {
         // depends on how you want to implement the program
 
         List<String> employeeLines = FileUtil.readFileToList(arguments.getEmployeeFile());
-        List<String> timeCards = FileUtil.readFileToList(arguments.getTimeCards());
+        List<String> timeCardsLines = FileUtil.readFileToList(arguments.getTimeCards());
 
         List<IEmployee> employees = employeeLines.stream().map(Builder::buildEmployeeFromCSV)
                 .collect(Collectors.toList());
 
-        List<ITimeCard> timeCardList = timeCards.stream().map(Builder::buildTimeCardFromCSV)
-                .collect(Collectors.toList());
+        Map<String, Double> timeCards = timeCardsLines.stream()
+                .map(Builder::buildTimeCardFromCSV)
+                .collect(Collectors.toMap(ITimeCard::getEmployeeID, ITimeCard::getHoursWorked));
 
-        List<IPayStub> payStubs = new LinkedList<>();
+
+        List<IPayStub> payStubs = employees.stream()
+                .map(emp -> {
+                    double hoursWorked = timeCards.getOrDefault(emp.getID(), 0.0);
+                    return (hoursWorked >= 0) ? emp.runPayroll(hoursWorked) : null;
+                })
+                .filter(stub -> stub != null && stub.getPay() > 0)
+                .collect(Collectors.toList());
 
 
         // now we suggest looping through the timeCardList and for each timecard, find

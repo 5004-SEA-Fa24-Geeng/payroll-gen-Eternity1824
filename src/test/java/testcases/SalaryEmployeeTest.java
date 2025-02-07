@@ -1,3 +1,5 @@
+package testcases;
+
 import org.junit.jupiter.api.Test;
 import student.IPayStub;
 import student.SalaryEmployee;
@@ -5,6 +7,10 @@ import student.SalaryEmployee;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SalaryEmployeeTest     {
+
+    /**
+     * normal test worker
+     */
     @Test
     public void testSalaryEmployeePayroll() {
         SalaryEmployee emp = new SalaryEmployee("Jane Smith", "456", 52000.0, 20000.0, 4000.0, 100.0);
@@ -21,6 +27,9 @@ public class SalaryEmployeeTest     {
         assertEquals(468.10, stub.getTaxesPaid(), 0.01);
     }
 
+    /**
+     * workers worker 0 hour
+     */
     @Test
     public void testRunPayrollWithZeroHours() {
         SalaryEmployee emp = new SalaryEmployee("Jane Smith", "456", 52000.0, 20000.0, 4000.0, 100.0);
@@ -32,6 +41,9 @@ public class SalaryEmployeeTest     {
         assertEquals(0.0, stub.getTaxesPaid(), 0.01);
     }
 
+    /**
+     * workers work negative hours
+     */
     @Test
     public void testRunPayrollWithNegativeHours() {
         SalaryEmployee emp = new SalaryEmployee("Jane Smith", "456", 52000.0, 20000.0, 4000.0, 100.0);
@@ -39,12 +51,18 @@ public class SalaryEmployeeTest     {
         assertNull(emp.runPayroll(-5));
     }
 
+    /**
+     * test employee type
+     */
     @Test
     public void testEmployeeType() {
         SalaryEmployee emp = new SalaryEmployee("Jane Smith", "456", 52000.0, 20000.0, 4000.0, 100.0);
         assertEquals("SALARY", emp.getEmployeeType());
     }
 
+    /**
+     * test turning to CSV
+     */
     @Test
     public void testToCSV() {
         SalaryEmployee emp = new SalaryEmployee("Jane Smith", "456", 52000.0, 20000.0, 4000.0, 100.0);
@@ -52,6 +70,9 @@ public class SalaryEmployeeTest     {
         assertEquals(expected, emp.toCSV());
     }
 
+    /**
+     * test workers with high salary
+     */
     @Test
     public void testHighSalaryCalculations() {
         SalaryEmployee emp = new SalaryEmployee("Executive", "789", 120000.0, 50000.0, 10000.0, 500.0);

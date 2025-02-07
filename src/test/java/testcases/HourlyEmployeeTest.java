@@ -1,7 +1,9 @@
+package testcases;
+
 import org.junit.jupiter.api.Test;
 import student.HourlyEmployee;
 import student.IPayStub;
-import student.SalaryEmployee;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -10,6 +12,9 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class HourlyEmployeeTest {
 
+    /**
+     * testcase: workers worked without overtime
+     */
     @Test
     public void testHourlyEmployeeGrossPayWithoutOvertime() {
         HourlyEmployee emp = new HourlyEmployee("John Doe", "123", 20.0, 1000.0, 200.0, 50.0);
@@ -26,6 +31,9 @@ public class HourlyEmployeeTest {
         assertEquals(169.87, stub.getTaxesPaid(), 0.01); // 22.65% tax assumption
     }
 
+    /**
+     * testcase: workers work overtime
+     */
     @Test
     public void testHourlyEmployeeGrossPayWithOvertime() {
         HourlyEmployee emp = new HourlyEmployee("Jane Doe", "124", 20.0, 1000.0, 200.0, 50.0);
@@ -44,6 +52,9 @@ public class HourlyEmployeeTest {
         assertEquals(237.83, stub.getTaxesPaid(), 0.01); // 22.65% tax assumption
     }
 
+    /**
+     * testcase: workers work 0 time
+     */
     @Test
     public void testRunPayrollWithZeroHours() {
         HourlyEmployee emp = new HourlyEmployee("John Doe", "123", 20.0, 1000.0, 200.0, 50.0);
@@ -55,6 +66,9 @@ public class HourlyEmployeeTest {
         assertEquals(0.0, stub.getTaxesPaid(), 0.01);
     }
 
+    /**
+     * negative work hour
+     */
     @Test
     public void testRunPayrollWithNegativeHours() {
         HourlyEmployee emp = new HourlyEmployee("John Doe", "123", 20.0, 1000.0, 200.0, 50.0);
@@ -62,12 +76,18 @@ public class HourlyEmployeeTest {
         assertNull(stub);  // Should return null for negative hours
     }
 
+    /**
+     * test employee type
+     */
     @Test
     public void testEmployeeType() {
         HourlyEmployee emp = new HourlyEmployee("John Doe", "123", 20.0, 1000.0, 200.0, 50.0);
         assertEquals("HOURLY", emp.getEmployeeType());
     }
 
+    /**
+     * test for turning into CSV
+     */
     @Test
     public void testToCSV() {
         HourlyEmployee emp = new HourlyEmployee("John Doe", "123", 20.0, 1000.0, 200.0, 50.0);

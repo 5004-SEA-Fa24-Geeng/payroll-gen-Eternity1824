@@ -24,6 +24,9 @@ public class SalaryEmployee extends Employee {
      */
     @Override
     protected double calculateGrossPay(double hoursWorked) {
+        if (hoursWorked <= 0) {
+            return 0;
+        }
         return getPayRate() / 24;
     }
 

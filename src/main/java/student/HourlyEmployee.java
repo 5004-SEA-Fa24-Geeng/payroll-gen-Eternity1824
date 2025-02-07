@@ -1,5 +1,8 @@
 package student;
 
+/**
+ * class for HourlyEmployee
+ */
 public class HourlyEmployee extends Employee {
     private double hoursWorked;
     /**

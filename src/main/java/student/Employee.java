@@ -8,13 +8,13 @@ import java.math.RoundingMode;
  * Implements the IEmployee interface and provides common functionality
  * for different types of employees.
  */
-public abstract class Employee implements IEmployee{
-    private String name;
-    private String id;
-    private double payRate;
+public abstract class Employee implements IEmployee {
+    private final String name;
+    private final String id;
+    private final double payRate;
+    private final double pretaxDeductions;
     private double ytdEarnings;
     private double ytdTaxesPaid;
-    private double pretaxDeductions;
 
     public Employee(String name, String id, double payRate, double ytdEarnings, double ytdTaxesPaid, double pretaxDeductions) {
         this.name = name;
@@ -24,6 +24,7 @@ public abstract class Employee implements IEmployee{
         this.ytdTaxesPaid = ytdTaxesPaid;
         this.pretaxDeductions = pretaxDeductions;
     }
+
     /**
      * Gets the employee's name.
      *

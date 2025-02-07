@@ -5,17 +5,18 @@ package student;
  */
 public class HourlyEmployee extends Employee {
     private double hoursWorked;
+
     /**
      * Constructor for HourlyEmployee.
      *
-     * @param name            The employee's name.
-     * @param id              The employee's unique ID.
-     * @param payRate         The hourly pay rate.
-     * @param ytdEarnings     Year-to-date earnings.
-     * @param ytdTaxesPaid    Year-to-date taxes paid.
+     * @param name             The employee's name.
+     * @param id               The employee's unique ID.
+     * @param payRate          The hourly pay rate.
+     * @param ytdEarnings      Year-to-date earnings.
+     * @param ytdTaxesPaid     Year-to-date taxes paid.
      * @param pretaxDeductions Pretax deductions.
      */
-    public HourlyEmployee(String name, String id, double payRate, double ytdEarnings, double ytdTaxesPaid, double pretaxDeductions){
+    public HourlyEmployee(String name, String id, double payRate, double ytdEarnings, double ytdTaxesPaid, double pretaxDeductions) {
         super(name, id, payRate, ytdEarnings, ytdTaxesPaid, pretaxDeductions);
         this.hoursWorked = 0; // Default hours worked is 0
     }

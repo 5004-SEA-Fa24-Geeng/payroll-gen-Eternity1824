@@ -4,11 +4,11 @@ public class SalaryEmployee extends Employee {
     /**
      * Constructor for SalaryEmployee.
      *
-     * @param name            The employee's name.
-     * @param id              The employee's unique ID.
-     * @param payRate         The annual salary (divided by pay periods for bi-weekly pay).
-     * @param ytdEarnings     Year-to-date earnings.
-     * @param ytdTaxesPaid    Year-to-date taxes paid.
+     * @param name             The employee's name.
+     * @param id               The employee's unique ID.
+     * @param payRate          The annual salary (divided by pay periods for bi-weekly pay).
+     * @param ytdEarnings      Year-to-date earnings.
+     * @param ytdTaxesPaid     Year-to-date taxes paid.
      * @param pretaxDeductions Pretax deductions.
      */
     public SalaryEmployee(String name, String id, double payRate, double ytdEarnings, double ytdTaxesPaid, double pretaxDeductions) {

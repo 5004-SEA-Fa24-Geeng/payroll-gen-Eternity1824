@@ -25,9 +25,10 @@ public class SalaryEmployee extends Employee {
      */
     @Override
     protected double calculateGrossPay(double hoursWorked) {
-        if (hoursWorked <= 0) {
+        if (hoursWorked < 0) {
             return 0;
         }
+        // Salary is annual, divided by 24 pay periods
         return getPayRate() / 24;
     }
 

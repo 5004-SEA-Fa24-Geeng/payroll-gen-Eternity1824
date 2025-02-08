@@ -24,7 +24,7 @@ public final class Builder {
     public static IEmployee buildEmployeeFromCSV(String csv) {
         String[] parts = csv.split(",");
         if (parts.length != 7) {
-            return null;
+            System.out.println("Error: Invalid Employee Data.");
         }
 
         try {

@@ -4,7 +4,7 @@ package student;
  * class for HourlyEmployee.
  */
 public class HourlyEmployee extends Employee {
-    /** workers worked hours */
+    /** workers worked hours. */
     private double hoursWorked;
 
     /**

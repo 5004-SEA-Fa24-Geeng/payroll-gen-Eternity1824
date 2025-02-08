@@ -27,7 +27,7 @@ public abstract class Employee implements IEmployee {
      *
      * @param name             The name of the employee.
      * @param id               The unique identifier for the employee.
-     * @param payRate          The pay rate for the employee (hourly for hourly employees, annual for salaried employees).
+     * @param payRate          The pay rate for the employee.
      * @param ytdEarnings      The year-to-date earnings of the employee.
      * @param ytdTaxesPaid     The year-to-date taxes paid by the employee.
      * @param pretaxDeductions The pretax deductions for the employee (e.g., healthcare, retirement contributions).

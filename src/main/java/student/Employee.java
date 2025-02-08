@@ -114,11 +114,11 @@ public abstract class Employee implements IEmployee {
      */
     @Override
     public IPayStub runPayroll(double hoursWorked) {
-        if (hoursWorked < 0) {
-            return null; // Skip payroll for negative hours
-        }
+//        if (hoursWorked < 0) {
+//            return null; // Skip payroll for negative hours
+//        }
 
-        if (hoursWorked == 0) {
+        if (hoursWorked <= 0) {
             // Return a pay stub with zero values but don't update YTD
             return new PayStub(getID(), 0.0, 0.0, getYTDEarnings(), getYTDTaxesPaid());
         }

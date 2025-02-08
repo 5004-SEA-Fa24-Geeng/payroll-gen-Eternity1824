@@ -139,13 +139,13 @@ public abstract class Employee implements IEmployee {
 //        System.out.println("Taxes: " + taxes);
 
         // Update YTD earnings and taxes
-        ytdEarnings += netPay.doubleValue() - taxes.doubleValue();
+        netPay = netPay.subtract(taxes);
+        ytdEarnings += netPay.doubleValue();
         ytdTaxesPaid += taxes.doubleValue();
 //        System.out.println("Taxes: " + taxes);
 
-        // Calculate final net pay after taxes
-        netPay = netPay.subtract(taxes);
-        System.out.println("Final Net Pay: " + netPay);
+
+//        System.out.println("Final Net Pay: " + netPay);
 
         // Return the pay stub
         return new PayStub(name, netPay.doubleValue(), taxes.doubleValue(), ytdEarnings, ytdTaxesPaid);

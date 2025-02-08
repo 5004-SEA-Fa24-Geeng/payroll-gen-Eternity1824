@@ -32,8 +32,6 @@ public class TestPayrollGenerator {
         // get the path of the paystubs.csv
         Path payStubs = tempDir.resolve("paystubs.csv");
 
-
-
         String[] args = {"-e", employees.toString(), "-t", "resources/time_cards.csv", // allowed,
                                                                                        // this isn't
                                                                                        // modified -

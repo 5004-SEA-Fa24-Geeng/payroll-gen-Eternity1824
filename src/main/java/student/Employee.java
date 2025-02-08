@@ -9,14 +9,31 @@ import java.math.RoundingMode;
  * for different types of employees.
  */
 public abstract class Employee implements IEmployee {
+    /** The name of the employee. */
     private final String name;
+    /** The unique identifier for the employee. */
     private final String id;
+    /** The pay rate for the employee (hourly for hourly employees, annual for salaried employees). */
     private final double payRate;
+    /** The pretax deductions for the employee (e.g., healthcare, retirement contributions). */
     private final double pretaxDeductions;
+    /** The year-to-date earnings of the employee. */
     private double ytdEarnings;
+    /** The year-to-date taxes paid by the employee. */
     private double ytdTaxesPaid;
 
-    public Employee(String name, String id, double payRate, double ytdEarnings, double ytdTaxesPaid, double pretaxDeductions) {
+    /**
+     * Constructs an Employee object with the given details.
+     *
+     * @param name             The name of the employee.
+     * @param id               The unique identifier for the employee.
+     * @param payRate          The pay rate for the employee (hourly for hourly employees, annual for salaried employees).
+     * @param ytdEarnings      The year-to-date earnings of the employee.
+     * @param ytdTaxesPaid     The year-to-date taxes paid by the employee.
+     * @param pretaxDeductions The pretax deductions for the employee (e.g., healthcare, retirement contributions).
+     */
+    public Employee(String name, String id, double payRate, double ytdEarnings,
+                    double ytdTaxesPaid, double pretaxDeductions) {
         this.name = name;
         this.id = id;
         this.payRate = payRate;

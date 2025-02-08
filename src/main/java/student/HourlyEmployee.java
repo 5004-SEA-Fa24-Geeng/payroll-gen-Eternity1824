@@ -1,9 +1,10 @@
 package student;
 
 /**
- * class for HourlyEmployee
+ * class for HourlyEmployee.
  */
 public class HourlyEmployee extends Employee {
+    /** workers worked hours */
     private double hoursWorked;
 
     /**
@@ -16,7 +17,8 @@ public class HourlyEmployee extends Employee {
      * @param ytdTaxesPaid     Year-to-date taxes paid.
      * @param pretaxDeductions Pretax deductions.
      */
-    public HourlyEmployee(String name, String id, double payRate, double ytdEarnings, double ytdTaxesPaid, double pretaxDeductions) {
+    public HourlyEmployee(String name, String id, double payRate,
+                          double ytdEarnings, double ytdTaxesPaid, double pretaxDeductions) {
         super(name, id, payRate, ytdEarnings, ytdTaxesPaid, pretaxDeductions);
         this.hoursWorked = 0; // Default hours worked is 0
     }

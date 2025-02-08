@@ -4,11 +4,15 @@ package student;
  * Represents a pay stub generated during payroll processing.
  */
 public class PayStub implements IPayStub {
-
+    /** The name of the employee. */
     private final String employeeName;
+    /** The final net pay after deductions and taxes. */
     private final double netPay;
+    /** The total taxes deducted. */
     private final double taxesPaid;
+    /** The year-to-date earnings. */
     private final double ytdEarnings;
+    /** The year-to-date taxes paid. */
     private final double ytdTaxesPaid;
 
     /**

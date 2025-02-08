@@ -70,7 +70,7 @@ public final class PayrollGenerator {
         List<IPayStub> payStubs = employees.stream()
                 .map(emp -> {
                     double hoursWorked = timeCards.getOrDefault(emp.getID(), 0.0);
-                    System.out.println(hoursWorked + " | "+emp.getName());
+                    System.out.println(hoursWorked + " | "+emp.getName()+" "+emp.getYTDEarnings());
                     return (hoursWorked >= 0) ? emp.runPayroll(hoursWorked) : null;
                 })
                 .filter(stub -> stub != null && stub.getPay() > 0)

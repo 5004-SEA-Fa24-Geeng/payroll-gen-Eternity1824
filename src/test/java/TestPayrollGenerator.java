@@ -47,6 +47,7 @@ public class TestPayrollGenerator {
                 .readString(Paths.get("resources/original/pay_stubs_solution_to_original.csv"));
 
         String actualPayStubs = Files.readString(payStubs);
+        System.out.println(actualPayStubs);
 
         assertEquals(expectedPayStubs, actualPayStubs);
 

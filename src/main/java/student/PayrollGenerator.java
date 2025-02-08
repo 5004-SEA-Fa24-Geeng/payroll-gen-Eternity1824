@@ -70,6 +70,7 @@ public final class PayrollGenerator {
         List<IPayStub> payStubs = employees.stream()
                 .map(emp -> {
                     double hoursWorked = timeCards.getOrDefault(emp.getID(), 0.0);
+                    System.out.println(hoursWorked + " | "+emp.getName());
                     return (hoursWorked >= 0) ? emp.runPayroll(hoursWorked) : null;
                 })
                 .filter(stub -> stub != null && stub.getPay() > 0)
@@ -84,6 +85,30 @@ public final class PayrollGenerator {
 
         //YOUR CODE HERE
 
+//        for (ITimeCard timeCard : timeCardList) {
+//            for (IEmployee employee : employees) {
+//                if (timeCard.getEmployeeID().equals(employee.getID())) {
+//                    double hoursWorked = timeCard.getHoursWorked();
+//                    if (hoursWorked < 0) {  // skip when hoursWorked < 0
+//                        continue;
+//                    }
+//                    // Store previous YTD values before payroll runs
+//                    double previousYTDTaxes = employee.getYTDTaxesPaid();
+//
+//                    // Run payroll (updates YTD values)
+//                    double netPay = employee.runPayroll(hoursWorked);
+//                    double roundYTDEarnings = employee.getYTDEarnings();
+//
+//                    // Calculate actual taxes paid
+//                    double taxes = employee.getYTDTaxesPaid() - previousYTDTaxes;
+//
+//                    if (netPay >= 0) {
+//                        payStubs.add(new PayStub(employee.getName(), netPay, taxes, roundYTDEarnings,
+//                                employee.getYTDTaxesPaid()));
+//                    }
+//                }
+//            }
+//        }
         // now save out employees to a new file
 
         employeeLines = employees.stream().map(IEmployee::toCSV).collect(Collectors.toList());

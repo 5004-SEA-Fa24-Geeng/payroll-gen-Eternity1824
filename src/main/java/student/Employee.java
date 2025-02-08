@@ -141,6 +141,7 @@ public abstract class Employee implements IEmployee {
         // Update YTD earnings and taxes
         netPay = netPay.subtract(taxes);
         ytdEarnings += netPay.doubleValue();
+        System.out.println(name + " " + ytdEarnings);
         ytdTaxesPaid += taxes.doubleValue();
 //        System.out.println("Taxes: " + taxes);
 

@@ -59,9 +59,12 @@ public final class PayrollGenerator {
         List<String> employeeLines = FileUtil.readFileToList(arguments.getEmployeeFile());
         List<String> timeCardsLines = FileUtil.readFileToList(arguments.getTimeCards());
         System.out.println("Employee file: " + arguments.getEmployeeFile());
+        System.out.println(employeeLines);
+        System.out.println(timeCardsLines);
 
         List<IEmployee> employees = employeeLines.stream().map(Builder::buildEmployeeFromCSV)
                 .collect(Collectors.toList());
+
 
         Map<String, Double> timeCards = timeCardsLines.stream()
                 .map(Builder::buildTimeCardFromCSV)
